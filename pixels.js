@@ -58,7 +58,7 @@ function draw() {
     
     ctx.stroke();
 
-    // Draw a red lines at (n-2) and a green line at (n-3).
+    // Draw red lines at (n-2) and green lines at (n-3).
     ctx.strokeStyle = '#a00';
     ctx.beginPath();
     ctx.moveTo(90, fbheight - 2);
