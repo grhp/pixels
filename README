@@ -1,0 +1,13 @@
+This test draws a small set of single-pixel thick lines onto a 2D canvas. It draws vertical lines
+into the left-most pixel column, the 99th column, and the right-most column. The right-most column
+is what's tricky! It also does the same thing for the vertical axis.
+
+Because the test uses integer coordinates, it uses "translate" to apply an offset by a half-pixel,
+otherwise the lines appear thicker than intended.
+
+It is interesting to note that the following formula for determining physical width results in a
+non-integer value on some mobile devices:
+
+    canvas.clientWidth * window.devicePixelRatio
+
+This results in subtle blurring around the lines, and right-most / bottom-most lines go missing.
