@@ -22,12 +22,12 @@ function window_resize() {
     console.info(css_width + 'x' + css_height + '@' + dpr);
 
     // Note that we're converting this into an integer; on some devices, the pixel ratio * virtual
-    // pixels does NOT result in integer dimensions, but it's the best approximation we have to
-    // physical devices.
+    // size does NOT result in integer dimensions, but it's the best approximation we have to
+    // physical pixels.
     fbwidth = canvas.width | 0;
     fbheight = canvas.height | 0;
 
-    // This is required to draw single-pixel lines using integer coordinates.
+    // The following half-pixel shift is required to draw single-pixel lines using integer coords.
     let ctx = canvas.getContext('2d');
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.translate(0.5, 0.5);
@@ -40,7 +40,7 @@ function draw() {
     ctx.strokeStyle = '#000';
     ctx.beginPath();
 
-    // Three horizontal lines: left-most column, 99th column, and right-most column.
+    // Three horizontal lines: left-most column, 101st column, and right-most column.
     ctx.moveTo(100, 0);
     ctx.lineTo(200, 0);
     ctx.moveTo(100, 100);
@@ -48,7 +48,7 @@ function draw() {
     ctx.moveTo(100, fbheight - 1);
     ctx.lineTo(200, fbheight - 1);
 
-    // Three vertical lines: top-most row, 99th row, and bottom-most row.
+    // Three vertical lines: top-most row, 101st row, and bottom-most row.
     ctx.moveTo(0, 100);
     ctx.lineTo(0, 200);
     ctx.moveTo(100, 100);

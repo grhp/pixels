@@ -1,5 +1,5 @@
 This test draws a small set of single-pixel thick lines onto a 2D canvas. It draws vertical lines
-into the left-most pixel column, the 99th column, and the right-most column. The right-most column
+into the left-most pixel column, the 101st column, and the right-most column. The right-most column
 is what's tricky! It also does the same thing for the vertical axis.
 
 Because the test uses integer coordinates, it uses "translate" to apply an offset by a half-pixel,
